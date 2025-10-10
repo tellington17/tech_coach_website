@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Your Personal Tech Coach</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Logo Placeholder -->
+<link rel="icon" type="image/png" href="images/logo.png">
+<!-- Drop your logo file into /images/logo.png -->
+
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="The Tech Guy Logo" class="logo" />
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contact Me</h1>
+    <p>If you’d like to learn more, schedule a session, or request pricing, please reach out!</p>
+    <p>📞 703-901-2781</p>
+    <p>📧 tyler.ellington17@gmail.com</p>
+  </main>
+
+  <main>
+    <form id="contact-form" onsubmit="return openEmail();">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="email">Your Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+
+  <script>
+    function openEmail() {
+      const name = document.getElementById('name').value;
+      const message = document.getElementById('message').value;
+      const email = "tyler.ellington17@gmail.com";
+      const subject = `Tech Guy Request - ${name}`;
+      const body = encodeURIComponent(message);
+
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${body}`;
+      return false; // prevent actual form submission
+    }
+  </script>
+
+  <footer>
+    <p>📞 703-901-2781 | 📧 tyler.ellington17@gmail.com</p>
+  </footer>
+</body>
+</html>
