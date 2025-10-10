@@ -48,7 +48,7 @@ nav a {
   border-radius: 5px;
 }
 
-.intro, .highlights, .about {
+.intro, .highlights, .about, .contact, .contact-form {
   padding: 40px 20px;
   text-align: center;
 }

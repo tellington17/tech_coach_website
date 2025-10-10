@@ -12,7 +12,7 @@
 </head>
 <body>
   <header>
-    <img src="images/logo.PNG" alt="The Tech Guy Logo" class="logo" />
+    <img src="images/logo.png" alt="The Tech Guy Logo" class="logo" />
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -23,15 +23,13 @@
     </nav>
   </header>
 
-  <main>
+  <main class="contact">
     <h1>Contact Me</h1>
     <p>If you’d like to learn more, schedule a session, or request pricing, please reach out!</p>
-    <p>📞 703-901-2781</p>
-    <p>📧 tyler.ellington17@gmail.com</p>
   </main>
 
   <main>
-    <form id="contact-form" onsubmit="return openEmail();">
+    <form id="contact-form" class="contact-form" onsubmit="return openEmail();">
       <label for="name">Name:</label><br>
       <input type="text" id="name" name="name" required><br><br>
 
@@ -58,11 +56,11 @@
     }
   </script>
 
-  <footer>
-    <p>703-901-2781 | tyler.ellington17@gmail.com</p>
-    <p>Connect with me on 
+<footer>
+  <p> 703-901-2781 | tyler.ellington17@gmail.com</p>
+  <p>Connect with me on 
       <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HERE" target="_blank">LinkedIn</a>
     </p>
-  </footer>
+</footer>
 </body>
 </html>
