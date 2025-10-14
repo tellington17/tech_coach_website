@@ -11,10 +11,32 @@ document.addEventListener('DOMContentLoaded', () => {
             const navMenu = document.getElementById('nav-menu');
 
             if (navToggle && navMenu) {
-                navToggle.addEventListener('click', () => {
+                // Toggle menu open/close
+                navToggle.addEventListener('click', (event) => {
+                    event.stopPropagation(); // Prevent click from bubbling
                     navMenu.classList.toggle('open');
+                });
+
+                // Close when clicking outside the menu or toggle
+                document.addEventListener('click', (event) => {
+                    if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) {
+                        navMenu.classList.remove('open');
+                    }
+                });
+
+                // Close when scrolling
+                window.addEventListener('scroll', () => {
+                    navMenu.classList.remove('open');
                 });
             }
         })
         .catch(error => console.error('Error loading header:', error));
+});
+
+// Enable card flip for all highlight elements
+document.addEventListener('click', (event) => {
+    const highlight = event.target.closest('.highlight');
+    if (highlight) {
+        highlight.classList.toggle('flipped');
+    }
 });

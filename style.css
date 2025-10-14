@@ -24,7 +24,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
   margin: auto;
   padding: 0.5rem 1rem;
 }
@@ -48,6 +47,11 @@ body {
   margin: 0;
 }
 
+.nav-title a {
+  color: white;
+  text-decoration: none;
+}
+
 /* Hamburger button */
 .nav-toggle {
   flex: 1;
@@ -57,11 +61,6 @@ body {
   color: white;
   font-size: 1.8rem;
   cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.nav-toggle:hover {
-  transform: scale(1.1);
 }
 
 /* Dropdown menu */
@@ -135,8 +134,8 @@ body {
   border-radius: 5px;
 }
 
-.intro, .highlights, .about, .services, .contact, .contact-form {
-  padding: 40px 20px;
+.intro, .highlights, .about, .services, .contact, .contact-form, .reviews {
+  padding: 50px 20px;
   text-align: center;
 }
 
@@ -173,10 +172,35 @@ body {
   list-style-type: none;
 }
 
+.service p {
+  text-decoration: underline;
+}
+
+.service li {
+  margin: 10px 0;
+  list-style: none;
+}
+
+.privacy {
+  text-align: center;
+  margin: auto;
+  padding: 5px;
+  background: #c6c8c9;
+}
+
+.privacy p {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
 footer {
   text-align: center;
   padding: 20px;
   background-color: #0a4d8c;
+  color: white;
+}
+
+footer a {
   color: white;
 }
 
