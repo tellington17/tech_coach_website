@@ -1,3 +1,13 @@
+html, body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+main {
+  flex: 1;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -134,8 +144,8 @@ body {
   border-radius: 5px;
 }
 
-.intro, .highlights, .about, .services, .contact, .contact-form, .reviews {
-  padding: 50px 20px;
+.intro, .highlights, .about, .services, .tips, .contact, .contact-form, .reviews {
+  padding: 50px;
   text-align: center;
 }
 
@@ -155,9 +165,7 @@ body {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.services {
-  display:inline-block;
-  justify-content: space-around;
+.services, .about, .tips, .contact {
   flex-wrap: wrap;
   background: #eef4fb;
 }
