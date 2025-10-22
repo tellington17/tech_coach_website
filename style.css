@@ -176,9 +176,14 @@ body {
   text-decoration: underline;
 }
 
+.service ul {
+  padding: 0;
+}
+
 .service li {
   margin: 10px 0;
   list-style: none;
+  padding: 0;
 }
 
 .privacy {
