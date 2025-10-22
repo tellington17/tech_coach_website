@@ -40,3 +40,28 @@ document.addEventListener('click', (event) => {
         highlight.classList.toggle('flipped');
     }
 });
+
+// EmailJS form submission handling
+document.addEventListener("DOMContentLoaded", function () {
+    // Initialize EmailJS
+    emailjs.init("DLMola9AEmeTtDNly"); 
+  
+    // Add form submission handler
+    const contactForm = document.getElementById("contact-form");
+  
+    if (contactForm) {
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+  
+        emailjs.sendForm("service_byuo014", "template_ghrdyjm", this)
+          .then(() => {
+            alert("Message sent successfully!");
+            contactForm.reset();
+          })
+          .catch((error) => {
+            console.error("EmailJS Error:", error);
+            alert("Failed to send message. Please try again later.");
+          });
+      });
+    }
+  });
