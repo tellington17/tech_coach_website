@@ -11,27 +11,15 @@
 
 </head>
 <body>
-  <header>
-    <img src="images/logo.PNG" alt="The Tech Guy Logo" class="logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div id="header"></div>
 
-  <main>
+  <main class="contact">
     <h1>Contact Me</h1>
     <p>If you’d like to learn more, schedule a session, or request pricing, please reach out!</p>
-    <p>📞 703-901-2781</p>
-    <p>📧 tyler.ellington17@gmail.com</p>
   </main>
 
   <main>
-    <form id="contact-form" onsubmit="return openEmail();">
+    <form id="contact-form" class="contact-form" onsubmit="return openEmail();">
       <label for="name">Name:</label><br>
       <input type="text" id="name" name="name" required><br><br>
 
@@ -41,11 +29,11 @@
       <label for="message">Message:</label><br>
       <textarea id="message" name="message" rows="5" required></textarea><br><br>
 
-      <button type="submit">Submit</button>
+      <button type="submit">Send</button>
     </form>
   </main>
 
-  <script>
+  <!-- <script>
     function openEmail() {
       const name = document.getElementById('name').value;
       const message = document.getElementById('message').value;
@@ -56,13 +44,17 @@
       window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${body}`;
       return false; // prevent actual form submission
     }
-  </script>
+  </script> -->
 
-  <footer>
-    <p>703-901-2781 | tyler.ellington17@gmail.com</p>
-    <p>Connect with me on 
+<footer>
+  <p> 703-901-2781 | tyler.ellington17@gmail.com</p>
+  <p>Connect with me on 
       <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HERE" target="_blank">LinkedIn</a>
     </p>
-  </footer>
+</footer>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="script.js" defer></script>
+
 </body>
 </html>
