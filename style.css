@@ -6,29 +6,115 @@ body {
   color: #333;
 }
 
-header {
+
+/* Sticky Navbar */
+.navbar {
+  background-color: #004080;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Navbar container */
+.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0a4d8c;
-  padding: 10px 20px;
+  margin: auto;
+  padding: 0.5rem 1rem;
 }
 
-header .logo {
-  height: 50px;
+/* Left: Logo */
+.nav-left {
+  flex: 1;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+.nav-logo-img {
+  height: 40px;
 }
 
-nav a {
+/* Title centered in navbar */
+.nav-title {
+  flex: 1;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
   color: #fff;
-  text-decoration: none;
-  font-weight: bold;
+  margin: 0;
 }
+
+.nav-title a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Hamburger button */
+.nav-toggle {
+  flex: 1;
+  text-align: right;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Dropdown menu */
+.nav-menu {
+  position: absolute;
+  top: 100%; /* directly below the navbar */
+  right: 1rem; /* align to the right side of the screen */
+  background-color: #004080f2;
+  border-radius: 8px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  width: auto; /* only as wide as content */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* When menu is open */
+.nav-menu.open {
+  max-height: 500px;
+  opacity: 1;
+}
+
+/* Inner list */
+.nav-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* align items to the right */
+}
+
+/* Individual items */
+.nav-menu li {
+  width: 100%;
+}
+
+.nav-menu li a {
+  display: block;
+  text-align: right;
+  padding: 0.6rem 1rem;
+  color: white;
+  text-decoration: none;
+  white-space: nowrap; /* prevent wrapping */
+  transition: background 0.2s ease, padding-right 0.2s ease;
+}
+
+/* Hover effect */
+.nav-menu li a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  padding-right: 1.2rem;
+}
+
 
 .hero {
   text-align: center;
@@ -48,8 +134,8 @@ nav a {
   border-radius: 5px;
 }
 
-.intro, .highlights, .about {
-  padding: 40px 20px;
+.intro, .highlights, .about, .services, .contact, .contact-form, .reviews {
+  padding: 50px 20px;
   text-align: center;
 }
 
@@ -69,10 +155,52 @@ nav a {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+.services {
+  display:inline-block;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background: #eef4fb;
+}
+
+.service {
+  flex: 1;
+  margin: 10px;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  list-style-type: none;
+}
+
+.service p {
+  text-decoration: underline;
+}
+
+.service li {
+  margin: 10px 0;
+  list-style: none;
+}
+
+.privacy {
+  text-align: center;
+  margin: auto;
+  padding: 5px;
+  background: #c6c8c9;
+}
+
+.privacy p {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
 footer {
   text-align: center;
   padding: 20px;
   background-color: #0a4d8c;
+  color: white;
+}
+
+footer a {
   color: white;
 }
 
