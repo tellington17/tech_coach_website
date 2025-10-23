@@ -16,7 +16,6 @@ body {
   color: #333;
 }
 
-
 /* Sticky Navbar */
 .navbar {
   background-color: #004080;
@@ -145,8 +144,14 @@ body {
 }
 
 .intro, .highlights, .about, .services, .tips, .contact, .contact-form, .reviews {
-  padding: 50px;
+  padding: 50px 1rem;
   text-align: center;
+}
+
+@media (min-width: 768px) {
+  .services {
+    padding: 50px 4rem;
+  }
 }
 
 .highlights {

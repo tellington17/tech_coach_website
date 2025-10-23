@@ -44,24 +44,38 @@ document.addEventListener('click', (event) => {
 // EmailJS form submission handling
 document.addEventListener("DOMContentLoaded", function () {
     // Initialize EmailJS
-    emailjs.init("DLMola9AEmeTtDNly"); 
-  
+    emailjs.init("DLMola9AEmeTtDNly");
+
     // Add form submission handler
     const contactForm = document.getElementById("contact-form");
-  
+
     if (contactForm) {
-      contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-  
-        emailjs.sendForm("service_byuo014", "template_ghrdyjm", this)
-          .then(() => {
-            alert("Message sent successfully!");
-            contactForm.reset();
-          })
-          .catch((error) => {
-            console.error("EmailJS Error:", error);
-            alert("Failed to send message. Please try again later.");
-          });
-      });
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            emailjs.sendForm("service_byuo014", "template_ghrdyjm", this)
+                .then(() => {
+                    alert("Message sent successfully!");
+                    contactForm.reset();
+                })
+                .catch((error) => {
+                    console.error("EmailJS Error:", error);
+                    alert("Failed to send message. Please try again later.");
+                });
+        });
     }
-  });
+});
+
+// Adjust main padding based on navbar height
+function adjustMainPadding() {
+    const navbar = document.querySelector('.navbar');
+    const main = document.querySelector('main');
+    if (navbar && main) {
+        const navbarHeight = navbar.offsetHeight;
+        main.style.paddingTop = `${navbarHeight}px`;
+    }
+}
+
+// Run on load and when the window resizes
+window.addEventListener('load', adjustMainPadding);
+window.addEventListener('resize', adjustMainPadding);
