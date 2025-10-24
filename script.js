@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             // Insert the fetched header HTML into the page
             document.getElementById('header').innerHTML = data;
-
+            
             // Attach navbar behavior after header loads
             const navToggle = document.getElementById('nav-toggle');
             const navMenu = document.getElementById('nav-menu');
@@ -31,6 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
         .catch(error => console.error('Error loading header:', error));
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            // Insert the fetched header HTML into the page
+            document.getElementById('footer').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading footer:', error));
 });
 
 // Enable card flip for all highlight elements
