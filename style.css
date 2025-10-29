@@ -186,7 +186,7 @@ body {
 }
 
 .service p {
-  text-decoration: underline;
+  text-decoration: emphasis;
 }
 
 .service ul {
