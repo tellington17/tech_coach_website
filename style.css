@@ -148,6 +148,14 @@ body {
   text-align: center;
 }
 
+.contact-form input, .contact-form textarea {
+  width: 75%;
+  padding: 5px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
 @media (min-width: 768px) {
   .services {
     padding: 50px 4rem;
