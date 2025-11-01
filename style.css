@@ -37,39 +37,41 @@ body {
   padding: 0.5rem 1rem;
 }
 
-/* Left: Logo */
+/* Left logo and title */
 .nav-left {
-  flex: 1;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-weight: 600;
+  font-size: .6rem;
+  color: white;
+  margin: 0;
+  gap: 0.5rem;
 }
 
+.nav-left a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
+
+ /* Logo image */
 .nav-logo-img {
   height: 40px;
+  width: auto;
 }
 
-/* Title centered in navbar */
-.nav-title {
-  flex: 1;
-  text-align: center;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #fff;
-  margin: 0;
-}
-
-.nav-title a {
-  color: white;
-  text-decoration: none;
-}
-
-/* Hamburger button */
+/* Hamburger button  */
 .nav-toggle {
-  flex: 1;
   text-align: right;
   background: none;
   border: none;
   color: white;
   font-size: 1.8rem;
   cursor: pointer;
+  padding: 0;
+  margin: 0;
 }
 
 /* Dropdown menu */
@@ -150,6 +152,7 @@ body {
 
 .contact-form input, .contact-form textarea {
   width: 75%;
+  max-width: 300px;
   padding: 5px;
   margin: 5px 0;
   border: 1px solid #ccc;
