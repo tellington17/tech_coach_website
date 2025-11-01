@@ -1,22 +1,28 @@
-<header class="navbar">
-    <div class="nav-container">
-        <div class="nav-left">
-            <a href="index.html">
-                <img src="images/logo-white-no-text.png" alt="The Tech Guy Logo" class="nav-logo-img">
-                <h1 class="nav-title">The Tech Guy</h1>
-            </a>
-        </div>
-        <button id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
-            ☰
+<nav class="navbar navbar-expand-lg fixed-top" style="background-color: #004080;">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold text-white" href="index.html">
+            <img src="/logo-white-no-text.png" alt="Logo" width="46" height="46" class="d-inline-block">
+            The Tech Guy
+          </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="services.html">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <nav id="nav-menu" class="nav-menu">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <!-- <li><a href="tips.html">Tips</a></li> -->
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</header>
+</nav>
