@@ -1,69 +1,46 @@
-// Dynamically load the header into the #header div
+// -----------------------------
+// Inject header, then wire navbar
+// -----------------------------
 document.addEventListener('DOMContentLoaded', () => {
     fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            // Insert the fetched header HTML into the page
-            document.getElementById('header').innerHTML = data;
-            
-            // Attach navbar behavior after header loads
-            const navToggle = document.getElementById('nav-toggle');
-            const navMenu = document.getElementById('nav-menu');
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('header').innerHTML = html;
 
-            if (navToggle && navMenu) {
-                // Toggle menu open/close
-                navToggle.addEventListener('click', (event) => {
-                    event.stopPropagation(); // Prevent click from bubbling
-                    navMenu.classList.toggle('open');
-                });
+            // After header is injected, wire up Bootstrap navbar behaviors
+            setupNavbar();
+            highlightActiveNav();
+            adjustBodyPadding(); // set correct top padding under fixed navbar
 
-                // Close when clicking outside the menu or toggle
-                document.addEventListener('click', (event) => {
-                    if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) {
-                        navMenu.classList.remove('open');
-                    }
-                });
-
-                // Close when scrolling
-                window.addEventListener('scroll', () => {
-                    navMenu.classList.remove('open');
-                });
-            }
+            // Re-adjust padding when window resizes or navbar opens/closes
+            window.addEventListener('resize', adjustBodyPadding);
         })
-        .catch(error => console.error('Error loading header:', error));
+        .catch(err => console.error('Error loading header:', err));
 });
 
-
+// -----------------------------
+// Inject footer (unchanged)
+// -----------------------------
 document.addEventListener('DOMContentLoaded', () => {
     fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-            // Insert the fetched header HTML into the page
-            document.getElementById('footer').innerHTML = data;
+        .then(r => r.text())
+        .then(html => {
+            document.getElementById('footer').innerHTML = html;
         })
-        .catch(error => console.error('Error loading footer:', error));
+        .catch(err => console.error('Error loading footer:', err));
 });
 
-// Enable card flip for all highlight elements
-document.addEventListener('click', (event) => {
-    const highlight = event.target.closest('.highlight');
-    if (highlight) {
-        highlight.classList.toggle('flipped');
-    }
-});
-
-// EmailJS form submission handling
+// -----------------------------
+// EmailJS form handling (unchanged)
+// -----------------------------
 document.addEventListener("DOMContentLoaded", function () {
-    // Initialize EmailJS
-    emailjs.init("DLMola9AEmeTtDNly");
-
-    // Add form submission handler
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("DLMola9AEmeTtDNly");
+    }
     const contactForm = document.getElementById("contact-form");
-
-    if (contactForm) {
+    if (contactForm && typeof emailjs !== 'undefined') {
         contactForm.addEventListener("submit", function (e) {
             e.preventDefault();
-
             emailjs.sendForm("service_byuo014", "template_ghrdyjm", this)
                 .then(() => {
                     alert("Message sent successfully!");
@@ -77,16 +54,82 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// Adjust main padding based on navbar height
-function adjustMainPadding() {
-    const navbar = document.querySelector('.navbar');
-    const main = document.querySelector('main');
-    if (navbar && main) {
-        const navbarHeight = navbar.offsetHeight;
-        main.style.paddingTop = `${navbarHeight}px`;
+// -----------------------------
+// Highlight current page in navbar
+// -----------------------------
+// Highlight current page in navbar (handles GitHub Pages root)
+function highlightActiveNav() {
+    let current = window.location.pathname.split('/').pop();
+
+    // Handle root path (e.g., https://thetechguy.github.io/)
+    if (current === '' || current === '/') {
+        current = 'index.html';
     }
+
+    document.querySelectorAll('.nav-link').forEach(a => {
+        const href = a.getAttribute('href');
+        a.classList.toggle('active', href === current);
+    });
 }
 
-// Run on load and when the window resizes
-window.addEventListener('load', adjustMainPadding);
-window.addEventListener('resize', adjustMainPadding);
+
+// -----------------------------
+// Bootstrap navbar behaviors
+// - Close on link click / outside click / scroll
+// - Keep hamburger ↔︎ X animation in sync
+// - Keep items right aligned (handled by CSS), here we only manage state
+// -----------------------------
+function setupNavbar() {
+    const navbar = document.querySelector('.navbar');
+    const toggler = document.querySelector('.navbar-toggler');
+    const collapseEl = document.getElementById('navbarNav');
+
+    if (!navbar || !toggler || !collapseEl) return;
+
+    // Create a Collapse controller we can programmatically close
+    const bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
+
+    // Ensure initial icon state (hamburger)
+    toggler.classList.add('collapsed');
+
+    // Sync the icon on show/hide
+    collapseEl.addEventListener('shown.bs.collapse', () => {
+        toggler.classList.remove('collapsed');
+      });
+      collapseEl.addEventListener('hidden.bs.collapse', () => {
+        toggler.classList.add('collapsed');
+      });
+      
+
+    // Close when a nav link is clicked
+    collapseEl.addEventListener('click', (e) => {
+        if (e.target.classList.contains('nav-link')) {
+            bsCollapse.hide();
+        }
+    });
+
+    // Close when clicking outside the navbar
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target) && collapseEl.classList.contains('show')) {
+            bsCollapse.hide();
+        }
+    });
+
+    // Close when scrolling
+    window.addEventListener('scroll', () => {
+        if (collapseEl.classList.contains('show')) {
+            bsCollapse.hide();
+        }
+    });
+}
+
+// -----------------------------
+// Keep body content from hiding under fixed navbar
+// (handles wrapping/two-line titles as well)
+// -----------------------------
+function adjustBodyPadding() {
+    const nav = document.querySelector('.navbar');
+    if (!nav) return;
+    const h = nav.offsetHeight || 66;
+    document.body.style.paddingTop = `${h}px`;
+}

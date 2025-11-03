@@ -1,6 +1,16 @@
-<footer>
-  <p>© 2025 Ty the Tech Guy. All rights reserved.</p>
-  <p>Connect with me on
-    <a href="https://www.linkedin.com/in/tyler-ellington" target="_blank">LinkedIn</a>
-  </p>
+<footer class="footer mt-0 py-4 text-white" style="background-color: #004080;">
+  <div class="container text-center">
+    <p class="mb-2">
+      &copy; <span id="current-year"></span> The Tech Guy. All rights reserved.
+    </p>
+    <p class="mb-0">
+      <a href="mailto:tyler.ellington17@gmail.com" class="text-white text-decoration-none">tyler.ellington17@gmail.com</a> |
+      <a href="tel:7039012781" class="text-white text-decoration-none">703-901-2781</a>
+    </p>
+  </div>
+
+  <script>
+    // Automatically update the year in the footer
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
 </footer>

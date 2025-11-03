@@ -4,62 +4,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - Your Personal Tech Coach</title>
+  <title>The Tech Guy - Contact</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <!-- Logo Placeholder -->
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo-no-text.png">
-
-
 </head>
 
 <body>
   <div id="header"></div>
 
-  <main class="contact">
-    <h1>Contact Me</h1>
-    <p>If you’d like to learn more, schedule a session, or request pricing, please reach out!</p>
-  </main>
+  <!-- Contact Section -->
+  <section class="py-5">
+    <div class="container">
+      <h1 class="text-center fw-bold mb-4 text-primary">Contact Me</h1>
+      <p class="text-center mb-5 text-muted">
+        Have a question or want to schedule a session? I’d love to hear from you.
+      </p>
 
-  <main>
-    <form id="contact-form" class="contact-form" onsubmit="return openEmail();">
-      <label for="name">Name:</label><br>
-      <input type="text" id="name" name="name" required><br><br>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+              <form id="contact-form">
+                <div class="mb-3">
+                  <label for="name" class="form-label fw-semibold">Full Name</label>
+                  <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
+                </div>
 
-      <label for="email">Your Email:</label><br>
-      <input type="email" id="email" name="email" required><br><br>
+                <div class="mb-3">
+                  <label for="email" class="form-label fw-semibold">Email Address</label>
+                  <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com"
+                    required>
+                </div>
 
-      <label for="message">Message:</label><br>
-      <textarea id="message" name="message" rows="5" required></textarea><br><br>
+                <div class="mb-3">
+                  <label for="message" class="form-label fw-semibold">Message</label>
+                  <textarea id="message" name="message" class="form-control" rows="5" placeholder="How can I help you?"
+                    required></textarea>
+                </div>
 
-      <button type="submit">Send</button>
-    </form>
-  </main>
+                <div class="d-grid">
+                  <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                </div>
+              </form>
+            </div>
+          </div>
 
-  <!-- <script>
-    function openEmail() {
-      const name = document.getElementById('name').value;
-      const message = document.getElementById('message').value;
-      const email = "tyler.ellington17@gmail.com";
-      const subject = `Tech Guy Request - ${name}`;
-      const body = encodeURIComponent(message);
+          <div class="text-center mt-4">
+            <p class="text-muted mb-1">Prefer to reach out directly?</p>
+            <p class="fw-semibold text-primary">
+              📞 703-901-2781<br>
+              ✉️ <a href="mailto:tyler.ellington17@gmail.com"
+                class="text-primary text-decoration-none">tyler.ellington17@gmail.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${body}`;
-      return false; // prevent actual form submission
-    }
-  </script> -->
+  <!-- Privacy Statement -->
+  <section id="privacy" class="py-5 bg-light mb-0">
+    <div class="container text-center">
+      <h3 class="fw-bold mb-3 text-primary">Privacy Statement</h3>
+      <p class="text-muted mx-auto" style="max-width: 700px;">
+        <em>Your privacy is important to me. Any personal information shared during our sessions or through this website
+          will never be sold, shared, or distributed to third parties. I only use your information to provide the
+          services you request.</em>
+      </p>
+    </div>
+  </section>
 
   <footer id="footer"></footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script src="script.js" defer></script>
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
+  <!-- Custom Script -->
+  <script src="script.js"></script>
 </body>
 
 </html>

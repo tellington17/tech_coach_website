@@ -1,44 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me - Your Personal Tech Coach</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <!-- Logo Placeholder -->
-  <link rel="icon" type="image/png" href="images/logo-no-text.png">
-  <!-- Drop your logo file into /images/logo.png -->
+  <title>The Tech Guy - About</title>
 
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo-no-text.png">
 </head>
 
 <body>
   <div id="header"></div>
 
-  <main class="about">
-    <h1>About Me</h1>
-    <img src="images/profile-picture.png" alt="Tyler Ellington Avatar" class="profile-pic" />
-    <p>Hello! I’m Tyler, your personal tech coach. </p>
-    <p>I’ve spent years helping friends, family, and clients solve everyday
-      technology challenges — from setting up new devices to simplifying digital clutter. By day, I develop software
-      solutions
-      for government clients to improve operating efficiencies. Outside of work, my passion is helping people seamlessly
-      integrate technology into their daily
-      lives.</p>
-    <p>My mission is simple:<br>Make technology <strong>simple</strong>. Make technology <strong>fun</strong>.</p>
-  </main>
+  <!-- About Section -->
+  <section class="py-5">
+    <div class="container">
+      <h1 class="text-center fw-bold mb-4 text-primary">About The Tech Guy</h1>
+      <p class="lead text-center text-muted mb-5">
+        Helping people make sense of technology is my passion. With years of experience in software development and hands-on tech support,
+        I’ve built a service around simplifying technology for everyday users and small businesses alike.
+      </p>
+
+      <div class="row align-items-center g-5">
+        <div class="col-md-6">
+          <img src="images/profile-picture.png" alt="Profile photo" class="img-fluid shadow-sm profile-photo">
+        </div>
+        <div class="col-md-6">
+          <h3 class="fw-bold text-primary mb-3">Who I Am</h3>
+          <p class="text-muted">
+            I’m a technology professional with a background in software consulting and low-code development. Outside of work,
+            I’ve become the go-to “tech guy” for family and friends — helping them set up new devices, troubleshoot issues, and feel confident using technology.
+          </p>
+          <p class="text-muted">
+            That same approachable, practical help is what inspired me to start this service — giving individuals and households
+            access to clear, friendly, and reliable tech support without the confusion or jargon.
+          </p>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <div class="col-md-12 text-center">
+          <h3 class="fw-bold text-primary mb-3">My Mission</h3>
+          <p class="text-muted mx-auto" style="max-width: 700px;">
+            To make technology stress-free, approachable, and empowering — so you can focus on what matters most, while I handle the setup, learning, and troubleshooting.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer id="footer"></footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
-    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
-    crossorigin="anonymous"></script>
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom Script -->
   <script src="script.js"></script>
-
 </body>
-
 </html>
