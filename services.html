@@ -1,57 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services - Your Personal Tech Coach</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Logo Placeholder -->
-  <link rel="icon" type="image/png" href="images/logo-no-text.png">
+  <title>The Tech Guy - Services</title>
 
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo-no-text.png">
 </head>
 
 <body>
   <div id="header"></div>
 
-  <main class="services">
-    <h1>Services</h1>
-    <section class="services-section">
-      <div class="service">
-        <h3>Setup & Support</h3>
-        <p><em>New devices, apps, troubleshooting, and more.</em></p>
-        <ul>
-          <li><strong>Tech Setup & Support | </strong> Hassle-free setup and customization of new devices (e.g., phones, computers,
-            smart home devices).</li>
-          <li><strong>Ongoing Tech Support | </strong> Flexible support plans for troubleshooting and peace of mind whenever problems
-            arise.</li>
-        </ul>
+  <!-- Services Section -->
+  <section class="py-5">
+    <div class="container">
+      <h1 class="text-center fw-bold mb-4 text-primary">Services</h1>
+      <p class="text-center mb-5 text-muted">Explore the personalized technology solutions I offer to make your tech life easier and more efficient.</p>
+
+      <div class="row g-5">
+        <div class="col-md-6">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <h3 class="fw-bold text-primary mb-3">Home Tech Setup & Support</h3>
+              <ul class="list-unstyled text-muted">
+                <li><strong>Device Setup:</strong> Get your new phones, computers, tablets, or smart devices running smoothly.</li>
+                <li><strong>Software & App Support:</strong> Troubleshoot issues or set up software and email accounts properly.</li>
+                <li><strong>Smart Home Help:</strong> Connect and configure smart TVs, assistants, and home devices.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <h3 class="fw-bold text-primary mb-3">Tech Coaching & Guidance</h3>
+              <ul class="list-unstyled text-muted">
+                <li><strong>Personalized Lessons:</strong> Learn how to get the most out of your devices and tools.</li>
+                <li><strong>Digital Organization:</strong> Clean up your inbox, photos, and cloud storage for better productivity.</li>
+                <li><strong>Ongoing Support:</strong> Get answers, refreshers, and check-ins as your tech needs evolve.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="service">
-        <h3>Digital Organization</h3>
-        <p><em>Declutter your emails, photos, and cloud storage.</em></p>
-        <ul>
-          <li><strong>Digital Life Cleanup | </strong> Streamlined email, photo, and cloud storage organization so everything is tidy,
-            secure, and easy to find.</li>
-        </ul>
+      <div class="row g-5 mt-4">
+        <div class="col-md-12">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body text-center">
+              <h3 class="fw-bold text-primary mb-3">Service Packages</h3>
+              <p class="text-muted mb-4">Whether you need a one-time session or ongoing support, I offer flexible packages to meet your needs. Contact me for pricing and scheduling.</p>
+              <a href="contact.html" class="btn btn-primary">Contact Me</a>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div class="service">
-        <h3>Coaching</h3>
-        <p><em>Get the most out of your devices.</em></p>
-        <ul>
-          <li><strong>Tech Coaching for Everyday Users | </strong> Personalized lessons to help clients get the most out of their phones,
-            computers, tablets, and more.</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+  <footer id="footer"></footer>
 
-  <div id="footer"></div>
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
+  <!-- Custom Script -->
   <script src="script.js"></script>
-
 </body>
-
 </html>

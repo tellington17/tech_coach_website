@@ -1,79 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Personal Tech Coach - Home</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
-  <!-- Logo Placeholder -->
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo-no-text.png">
-
-
 </head>
 
 <body>
 
   <div id="header"></div>
 
-  <section class="hero">
-    <h1>Your Personal Tech Coach</h1>
-    <p>Smart. Simple. Seamless technology support.</p>
-    <a href="services.html" class="btn">Explore Services</a>
-  </section>
-
-  <section class="intro">
-    <h2>Welcome!</h2>
-    <p>I help people get the most out of their technology — whether that’s setting up new devices, organizing digital
-      clutter, or learning how to use tools more effectively. Let me make technology work for you.</p>
-  </section>
-
-  <section class="highlights">
-    <div class="highlight">
-      <h3>Setup & Support</h3>
-      <p>New devices, apps, troubleshooting, and more.</p>
-    </div>
-    <div class="highlight">
-      <h3>Digital Organization</h3>
-      <p>Declutter your emails, photos, and cloud storage.</p>
-    </div>
-    <div class="highlight">
-      <h3>Coaching</h3>
-      <p>Get the most out of your devices.</p>
+  <!-- Hero Section -->
+  <section class="hero text-center text-white d-flex flex-column justify-content-center align-items-center" style="background-color:#004080; height: 90vh;">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-3 text-white">Your Personal Tech Coach</h1>
+      <p class="lead mb-4">Smart. Simple. Seamless technology support.</p>
+      <a href="services.html" class="btn btn-light btn-lg">Explore Services</a>
     </div>
   </section>
 
-  <section id="reviews" class="reviews">
-    <h2>What Our Clients Say</h2>
-    <div class="review">
-      <p>“Tyler made setting up my new laptop so simple. He explained everything clearly and even organized my files.
-        Highly recommend!”</p>
-      <span>- Jane D.</span>
-    </div>
-    <div class="review">
-      <p>“I feel so much more confident using my phone now. Tyler was patient and showed me shortcuts I never knew
-        existed.”</p>
-      <span>- Mark R.</span>
-    </div>
-    <div class="review">
-      <p>“Quick, professional, and reliable. I’ll definitely call again for future tech help.”</p>
-      <span>- Sarah K.</span>
+  <!-- Intro Section -->
+  <section class="py-5 text-center">
+    <div class="container">
+      <h2 class="fw-bold mb-3">Welcome!</h2>
+      <p class="lead text-muted">I help people get the most out of their technology — whether that’s setting up new devices, organizing digital clutter, or learning how to use tools more effectively. Let me make technology work for you.</p>
     </div>
   </section>
 
-  <section id="privacy" class="privacy">
-    <h3>Privacy Statement</h2>
-      <p>Your privacy is important to me. Any personal information shared during our sessions or through this website
-        will
-        never be sold, shared, or distributed to third parties. I only use your information to provide the services you
-        request.</p>
+  <!-- Highlights Section -->
+  <section class="py-5 bg-light">
+    <div class="container text-center">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <h3 class="fw-bold">Setup & Support</h3>
+              <p class="text-muted">New devices, apps, troubleshooting, and more.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <h3 class="fw-bold">Digital Organization</h3>
+              <p class="text-muted">Declutter your emails, photos, and cloud storage.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+              <h3 class="fw-bold">Coaching</h3>
+              <p class="text-muted">Get the most out of your devices.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <!-- Approach Section -->
+  <section id="approach" class="py-5">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-5">My Approach</h2>
+      <div class="row g-5 justify-content-center">
+        <div class="col-md-4">
+          <div class="p-4 border rounded h-100">
+            <div class="step-number mb-3 fs-3 fw-bold text-primary">01</div>
+            <h4>Pre-Visit Call</h4>
+            <p>We start with a short conversation to understand your needs, current setup, and goals.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 border rounded h-100">
+            <div class="step-number mb-3 fs-3 fw-bold text-primary">02</div>
+            <h4>Personalized Session</h4>
+            <p>We’ll meet in person or virtually to simplify your setup and make technology work for you.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="p-4 border rounded h-100">
+            <div class="step-number mb-3 fs-3 fw-bold text-primary">03</div>
+            <h4>Leave-Behind Guide</h4>
+            <p>Afterward, you’ll receive a simple, personalized guide to continue using your new tools confidently.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Privacy Statement -->
+ <section id="privacy" class="py-5 bg-light mb-0">
+  <div class="container text-center">
+    <h3 class="fw-bold mb-3 text-primary">Privacy Statement</h3>
+    <p class="text-muted mx-auto" style="max-width: 700px;">
+      <em>Your privacy is important to me. Any personal information shared during our sessions or through this website will never be sold, shared, or distributed to third parties. I only use your information to provide the services you request.</em>
+    </p>
+  </div>
+</section>
 
   <footer id="footer"></footer>
 
+  <!-- Bootstrap + Popper + Custom Script -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 
-
 </body>
-
 </html>
