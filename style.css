@@ -10,6 +10,13 @@ body {
   padding-top: 66px; /* Fallback; JS will set exact height based on actual navbar */
 }
 
+/* Prevent horizontal scrollbars or page overflow on small screens */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
 h1, h2, h3, h4, h5 {
   color: #004080;
   font-weight: 700;
