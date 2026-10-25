@@ -1,98 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Tech Guy - Contact</title>
+  <title>Contact &amp; Book | The Tech Guy, Monmouth &amp; Ocean County NJ</title>
+  <meta name="description" content="Book a free 15-minute call or send a message to The Tech Guy for in-home and remote tech help in Monmouth and Ocean County, NJ.">
 
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo-no-text.png">
-
-  <!-- iPhone & iPad Safari Tab / Home Screen Icon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/logo-no-text.png">
-  <link rel="apple-touch-icon-precomposed" href="/images/logo-no-text.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/logo-no-text.png">
 </head>
 
 <body>
   <div id="header"></div>
 
-  <!-- Contact Section -->
-  <section class="py-5">
+  <header class="page-hero">
+    <h1 class="fw-bold mb-3">Let's get your tech sorted</h1>
+    <p class="lead">Book a free 15-minute call, send a message, or just give me a ring. I'll reply within one business day.</p>
+  </header>
+
+  <!-- Quick options -->
+  <section class="bg-light pb-0">
     <div class="container">
-      <h1 class="text-center fw-bold mb-4 text-primary">Contact Me</h1>
-      <p class="text-center mb-5 text-muted">
-        Have a question or want to schedule a session? I’d love to hear from you.
-      </p>
-
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <div class="card border-0 shadow-sm">
-            <div class="card-body p-4">
-              <form id="contact-form">
-                <div class="mb-3">
-                  <label for="name" class="form-label fw-semibold">Full Name</label>
-                  <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
-                </div>
-
-                <div class="mb-3">
-                  <label for="email" class="form-label fw-semibold">Email Address</label>
-                  <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com"
-                    required>
-                </div>
-
-                <div class="mb-3">
-                  <label for="message" class="form-label fw-semibold">Message</label>
-                  <textarea id="message" name="message" class="form-control" rows="5" placeholder="How can I help you?"
-                    required></textarea>
-                </div>
-
-                <div class="d-grid">
-                  <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
-                </div>
-              </form>
-            </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="rate-box h-100 text-center">
+            <div class="service-icon">📅</div>
+            <h2 class="h5 fw-bold">Book a Free Call</h2>
+            <p class="text-muted small">Pick a time that works for you. 15 minutes, no obligation.</p>
+            <a href="#contact-form" data-book class="btn btn-primary w-100">Choose a Time</a>
           </div>
-
-          <div class="text-center mt-4">
-            <p class="text-muted mb-1">Prefer to reach out directly?</p>
-            <p class="fw-semibold text-primary">
-              📞 703-901-2781<br>
-              ✉️ <a href="mailto:tyler.ellington17@gmail.com?subject=The%20Tech%20Guy%20Inquiry"
-                class="text-primary text-decoration-none">tyler.ellington17@gmail.com</a>
-            </p>
+        </div>
+        <div class="col-md-4">
+          <div class="rate-box h-100 text-center">
+            <div class="service-icon">📞</div>
+            <h2 class="h5 fw-bold">Call or Text</h2>
+            <p class="text-muted small">Prefer to talk now? Call or text anytime and I'll get back to you fast.</p>
+            <a href="tel:+17039012781" class="btn btn-outline-primary w-100">703-901-2781</a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="rate-box h-100 text-center">
+            <div class="service-icon">✉️</div>
+            <h2 class="h5 fw-bold">Email</h2>
+            <p class="text-muted small">Send a note anytime. Photos of error messages are welcome!</p>
+            <a href="mailto:tyler.ellington17@gmail.com?subject=The%20Tech%20Guy%20Inquiry" class="btn btn-outline-primary w-100">Send an Email</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Privacy Statement -->
-  <section id="privacy" class="py-5 bg-light mb-0">
+  <!-- Form -->
+  <section class="bg-light">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow-sm">
+            <div class="card-body p-4 p-md-5">
+              <h2 class="h4 fw-bold mb-1">Send a message</h2>
+              <p class="text-muted mb-4">Tell me a little about what you need and I'll follow up with a price and available times.</p>
+
+              <form id="contact-form">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="name" class="form-label fw-semibold">Full name</label>
+                    <input type="text" id="name" name="name" class="form-control" autocomplete="name" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="phone" class="form-label fw-semibold">Phone <span class="text-muted fw-normal">(optional)</span></label>
+                    <input type="tel" id="phone" name="phone" class="form-control" autocomplete="tel" placeholder="(732) 555-0123">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="email" class="form-label fw-semibold">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" autocomplete="email" placeholder="you@example.com" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="town" class="form-label fw-semibold">Your town</label>
+                    <input type="text" id="town" name="town" class="form-control" autocomplete="address-level2" placeholder="e.g. Toms River" required>
+                  </div>
+                  <div class="col-12">
+                    <label for="service" class="form-label fw-semibold">What can I help with?</label>
+                    <select id="service" name="service" class="form-select" required>
+                      <option value="" selected disabled>Choose a service…</option>
+                      <optgroup label="Setup & Support">
+                        <option>New Phone or Tablet Setup</option>
+                        <option>New Computer Setup</option>
+                        <option>Tune-Up or Troubleshooting</option>
+                        <option>Printer Setup</option>
+                      </optgroup>
+                      <optgroup label="Home, Wi-Fi & Smart Devices">
+                        <option>Wi-Fi Setup</option>
+                        <option>Smart TV and Streaming</option>
+                        <option>Smart Home Setup</option>
+                      </optgroup>
+                      <optgroup label="Digital Organization & Safety">
+                        <option>Photo Backup and Organization</option>
+                        <option>Inbox Cleanup</option>
+                        <option>Security Checkup</option>
+                      </optgroup>
+                      <optgroup label="Coaching & Ongoing Support">
+                        <option>Tech Lesson</option>
+                        <option>4-Lesson Bundle</option>
+                        <option>Tech Guy On Call Plan</option>
+                      </optgroup>
+                      <option>Not sure / Something else</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <span class="form-label fw-semibold d-block mb-2">Best way to reach you</span>
+                    <div class="d-flex flex-wrap gap-3">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="contact_method" id="cm-call" value="Phone call" checked>
+                        <label class="form-check-label" for="cm-call">Phone call</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="contact_method" id="cm-text" value="Text">
+                        <label class="form-check-label" for="cm-text">Text</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="contact_method" id="cm-email" value="Email">
+                        <label class="form-check-label" for="cm-email">Email</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <label for="message" class="form-label fw-semibold">Tell me more</label>
+                    <textarea id="message" name="message" class="form-control" rows="5"
+                      placeholder="What's going on, what devices you have, and any days or times that work best." required></textarea>
+                  </div>
+                  <div class="col-12 d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                  </div>
+                </div>
+                <div id="form-status" class="d-none" role="status" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+          <p class="text-center text-muted small mt-3 mb-0">Serving all of Monmouth &amp; Ocean County, NJ. Remote help available anywhere.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Privacy -->
+  <section id="privacy" class="py-5">
     <div class="container text-center">
-      <h3 class="fw-bold mb-3 text-primary">Privacy Statement</h3>
-      <p class="text-muted mx-auto" style="max-width: 700px;">
-        <em>Your privacy is important to me. Any personal information shared during our sessions or through this website
-          will never be sold, shared, or distributed to third parties. I only use your information to provide the
-          services you request.</em>
+      <h2 class="h4 fw-bold mb-3">Privacy Statement</h2>
+      <p class="text-muted mx-auto mb-0" style="max-width: 700px;">
+        <em>Your privacy is important to me. Any personal information shared during our sessions or through this website will never be sold, shared, or distributed to third parties. I only use your information to provide the services you request.</em>
       </p>
     </div>
   </section>
 
   <footer id="footer"></footer>
 
-  <!-- Bootstrap JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Custom Script -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script src="script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js"></script>
 </body>
-
 </html>
