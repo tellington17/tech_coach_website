@@ -1,135 +1,154 @@
-// -----------------------------
-// Inject header, then wire navbar
-// -----------------------------
+// =====================================================
+// SITE SETTINGS — edit these in one place
+// =====================================================
+// Paste your Square Appointments (or Calendly) booking link here.
+// While it's empty, every "Book a Free Call" button goes to the contact page.
+const BOOKING_URL = "https://squareup.com/appointments/book/LY0Q477EZCH72";
+
+// =====================================================
+// Inject header + footer, then wire everything up
+// =====================================================
 document.addEventListener('DOMContentLoaded', () => {
     fetch('header.html')
         .then(r => r.text())
         .then(html => {
             document.getElementById('header').innerHTML = html;
-
-            // After header is injected, wire up Bootstrap navbar behaviors
             setupNavbar();
             highlightActiveNav();
-            adjustBodyPadding(); // set correct top padding under fixed navbar
-
-            // Re-adjust padding when window resizes or navbar opens/closes
+            applyBookingLinks();
+            adjustBodyPadding();
             window.addEventListener('resize', adjustBodyPadding);
         })
         .catch(err => console.error('Error loading header:', err));
-});
 
-// -----------------------------
-// Inject footer (unchanged)
-// -----------------------------
-document.addEventListener('DOMContentLoaded', () => {
     fetch('footer.html')
         .then(r => r.text())
         .then(html => {
             document.getElementById('footer').innerHTML = html;
+            // Scripts inside injected HTML don't run, so set the year here
+            const yr = document.getElementById('current-year');
+            if (yr) yr.textContent = new Date().getFullYear();
+            applyBookingLinks();
         })
         .catch(err => console.error('Error loading footer:', err));
+
+    applyBookingLinks();   // buttons that live in the page itself
+    preselectService();    // contact.html?service=...
+    setupContactForm();
 });
 
-// -----------------------------
-// EmailJS form handling (unchanged)
-// -----------------------------
-document.addEventListener("DOMContentLoaded", function () {
-    if (typeof emailjs !== 'undefined') {
-        emailjs.init("DLMola9AEmeTtDNly");
-    }
-    const contactForm = document.getElementById("contact-form");
-    if (contactForm && typeof emailjs !== 'undefined') {
-        contactForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-            emailjs.sendForm("service_byuo014", "template_ghrdyjm", this)
-                .then(() => {
-                    alert("Message sent successfully!");
-                    contactForm.reset();
-                })
-                .catch((error) => {
-                    console.error("EmailJS Error:", error);
-                    alert("Failed to send message. Please try again later.");
-                });
-        });
-    }
-});
-
-// -----------------------------
-// Highlight current page in navbar
-// -----------------------------
-// Highlight current page in navbar (handles GitHub Pages root)
-function highlightActiveNav() {
-    let current = window.location.pathname.split('/').pop();
-
-    // Handle root path (e.g., https://thetechguy.github.io/)
-    if (current === '' || current === '/') {
-        current = 'index.html';
-    }
-
-    document.querySelectorAll('.nav-link').forEach(a => {
-        const href = a.getAttribute('href');
-        a.classList.toggle('active', href === current);
+// =====================================================
+// Booking buttons: any element with data-book
+// =====================================================
+function applyBookingLinks() {
+    document.querySelectorAll('[data-book]').forEach(a => {
+        if (BOOKING_URL) {
+            a.href = BOOKING_URL;
+            a.target = '_blank';
+            a.rel = 'noopener';
+        } else {
+            a.href = 'contact.html#contact-form';
+        }
     });
 }
 
+// =====================================================
+// Contact form: pre-select a service from the URL
+// e.g. contact.html?service=Wi-Fi%20Setup
+// =====================================================
+function preselectService() {
+    const select = document.getElementById('service');
+    if (!select) return;
+    const wanted = new URLSearchParams(window.location.search).get('service');
+    if (!wanted) return;
+    const match = [...select.options].find(o => o.value === wanted);
+    if (match) select.value = wanted;
+}
 
-// -----------------------------
+// =====================================================
+// EmailJS form handling
+// =====================================================
+function setupContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form || typeof emailjs === 'undefined') return;
+
+    emailjs.init({ publicKey: "DLMola9AEmeTtDNly" });
+    const status = document.getElementById('form-status');
+    const button = form.querySelector('button[type="submit"]');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        button.disabled = true;
+        button.textContent = 'Sending…';
+
+        emailjs.sendForm("service_byuo014", "template_ghrdyjm", this)
+            .then(() => {
+                showStatus(status, 'success', "Thanks! Your message is on its way. I'll get back to you within one business day.");
+                form.reset();
+            })
+            .catch(error => {
+                console.error("EmailJS Error:", error);
+                showStatus(status, 'danger', "Sorry, something went wrong. Please call or text 703-901-2781 instead.");
+            })
+            .finally(() => {
+                button.disabled = false;
+                button.textContent = 'Send Message';
+            });
+    });
+}
+
+function showStatus(el, type, msg) {
+    if (!el) { alert(msg); return; }
+    el.className = `alert alert-${type} mt-3 mb-0`;
+    el.textContent = msg;
+    el.classList.remove('d-none');
+}
+
+// =====================================================
+// Highlight current page in navbar (handles site root)
+// =====================================================
+function highlightActiveNav() {
+    let current = window.location.pathname.split('/').pop();
+    if (current === '' || current === '/') current = 'index.html';
+
+    document.querySelectorAll('.nav-link').forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === current);
+    });
+}
+
+// =====================================================
 // Bootstrap navbar behaviors
-// - Close on link click / outside click / scroll
-// - Keep hamburger ↔︎ X animation in sync
-// - Keep items right aligned (handled by CSS), here we only manage state
-// -----------------------------
+// =====================================================
 function setupNavbar() {
     const navbar = document.querySelector('.navbar');
     const toggler = document.querySelector('.navbar-toggler');
     const collapseEl = document.getElementById('navbarNav');
+    if (!navbar || !toggler || !collapseEl || typeof bootstrap === 'undefined') return;
 
-    if (!navbar || !toggler || !collapseEl) return;
-
-    // Create a Collapse controller we can programmatically close
     const bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: false });
-
-    // Ensure initial icon state (hamburger)
     toggler.classList.add('collapsed');
 
-    // Sync the icon on show/hide
-    collapseEl.addEventListener('shown.bs.collapse', () => {
-        toggler.classList.remove('collapsed');
-      });
-      collapseEl.addEventListener('hidden.bs.collapse', () => {
-        toggler.classList.add('collapsed');
-      });
-      
+    collapseEl.addEventListener('shown.bs.collapse', () => toggler.classList.remove('collapsed'));
+    collapseEl.addEventListener('hidden.bs.collapse', () => toggler.classList.add('collapsed'));
 
-    // Close when a nav link is clicked
-    collapseEl.addEventListener('click', (e) => {
-        if (e.target.classList.contains('nav-link')) {
-            bsCollapse.hide();
-        }
+    collapseEl.addEventListener('click', e => {
+        if (e.target.classList.contains('nav-link') || e.target.classList.contains('btn')) bsCollapse.hide();
     });
 
-    // Close when clicking outside the navbar
-    document.addEventListener('click', (e) => {
-        if (!navbar.contains(e.target) && collapseEl.classList.contains('show')) {
-            bsCollapse.hide();
-        }
+    document.addEventListener('click', e => {
+        if (!navbar.contains(e.target) && collapseEl.classList.contains('show')) bsCollapse.hide();
     });
 
-    // Close when scrolling
     window.addEventListener('scroll', () => {
-        if (collapseEl.classList.contains('show')) {
-            bsCollapse.hide();
-        }
+        if (collapseEl.classList.contains('show')) bsCollapse.hide();
     });
 }
 
-// -----------------------------
-// Keep body content from hiding under fixed navbar
-// (handles wrapping/two-line titles as well)
-// -----------------------------
+// =====================================================
+// Keep content from hiding under the fixed navbar
+// =====================================================
 function adjustBodyPadding() {
     const nav = document.querySelector('.navbar');
     if (!nav) return;
-    const h = nav.offsetHeight || 66;
-    document.body.style.paddingTop = `${h}px`;
+    document.body.style.paddingTop = `${nav.offsetHeight || 66}px`;
 }
