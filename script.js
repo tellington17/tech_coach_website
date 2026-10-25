@@ -3,7 +3,7 @@
 // =====================================================
 // Paste your Square Appointments (or Calendly) booking link here.
 // While it's empty, every "Book a Free Call" button goes to the contact page.
-const BOOKING_URL = "";
+const BOOKING_URL = "https://squareup.com/appointments/book/LY0Q477EZCH72";
 
 // =====================================================
 // Inject header + footer, then wire everything up
