@@ -1,9 +1,9 @@
 // =====================================================
 // SITE SETTINGS — edit these in one place
 // =====================================================
-// Paste your Square Appointments (or Calendly) booking link here.
-// While it's empty, every "Book a Free Call" button goes to the contact page.
-const BOOKING_URL = "https://squareup.com/appointments/book/LY0Q477EZCH72";
+// Where every "Book a Free Call" button goes. book.html has the Square
+// booking calendar embedded. An external link (https://...) opens in a new tab.
+const BOOKING_URL = "book.html";
 
 // =====================================================
 // Inject header + footer, then wire everything up
@@ -44,8 +44,10 @@ function applyBookingLinks() {
     document.querySelectorAll('[data-book]').forEach(a => {
         if (BOOKING_URL) {
             a.href = BOOKING_URL;
-            a.target = '_blank';
-            a.rel = 'noopener';
+            if (/^https?:/.test(BOOKING_URL)) {
+                a.target = '_blank';
+                a.rel = 'noopener';
+            }
         } else {
             a.href = 'contact.html#contact-form';
         }

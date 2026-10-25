@@ -197,6 +197,11 @@ section { padding-top: 64px; padding-bottom: 64px; }
   padding-bottom: .5rem; margin-bottom: 1.5rem;
 }
 
+/* Booking page */
+.booking-widget { min-height: 640px; }
+.booking-steps { padding-left: 1.2rem; margin-bottom: 1rem; }
+.booking-steps li { margin-bottom: .6rem; }
+
 /* Service area chips */
 .town-chip {
   display: inline-block; background: #fff; border: 1px solid #d6e4f5;
